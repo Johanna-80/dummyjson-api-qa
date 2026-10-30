@@ -1,0 +1,20 @@
+ID,Módulo,Técnica,Tipo,Escenario,Resultado esperado
+P01,Productos,Partición de equivalencia,Positiva,Listar productos,HTTP 200 y lista no vacía con campos requeridos
+P02,Productos,Partición de equivalencia,Positiva,Consultar ID existente,HTTP 200 e identificador correcto
+P03,Productos,Partición de equivalencia,Negativa,Consultar ID inexistente,HTTP 404 y mensaje de error
+P04,Productos,Partición de equivalencia,Positiva,Buscar término existente,HTTP 200 y coincidencias
+P05,Productos,Partición de equivalencia,Negativa,Buscar término sin coincidencias,HTTP 200 y lista vacía
+P06,Productos,Valores límite/Paginación,Positiva,Limit=5 y skip=10,HTTP 200 y cinco resultados con desplazamiento 10
+P07,Productos,Partición de equivalencia,Positiva,Filtrar categoría smartphones,HTTP 200 y productos de esa categoría
+P08,Productos,Ordenamiento,Positiva,Orden ascendente de precios,HTTP 200 y secuencia no decreciente
+P09,Productos,Proyección de campos,Positiva,Seleccionar title y price,HTTP 200 y campos presentes
+P10,Productos,CRUD simulado,Positiva,Crear producto,HTTP 201 y objeto creado en respuesta sin persistencia
+P11,Productos,CRUD simulado,Positiva,Actualizar título,HTTP 200 y título modificado en respuesta sin persistencia
+P12,Productos,CRUD simulado,Positiva,Eliminar producto,HTTP 200 y marca isDeleted=true sin persistencia
+C01,Carritos,Partición de equivalencia,Positiva,Consultar carrito existente,HTTP 200 con identificador y productos
+C02,Carritos,Regla de negocio,Positiva,Consistencia de cantidades,TotalQuantity igual a suma de quantities
+C03,Carritos,Partición de equivalencia,Positiva,Filtrar carritos por usuario,HTTP 200 y userId=5 en todos los resultados
+C04,Carritos,CRUD simulado,Positiva,Crear carrito con dos unidades,HTTP 201 y totalQuantity=2 sin persistencia
+A01,Autenticación,Partición de equivalencia,Positiva,Login con usuario de demostración,HTTP 200 y token de acceso
+A02,Autenticación,Partición de equivalencia,Negativa,Login con contraseña incorrecta,HTTP 400 y mensaje de error
+A03,Autenticación,Autorización,Positiva,Consultar usuario con Bearer token,HTTP 200 y nombre de usuario esperado
